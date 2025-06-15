@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e1e1e1;
+    padding-top: 50px;
+}
+
+.navbar {
+    background-color: white;
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-logo a {
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-logo img{
+    margin-top: 20px;
+    width: 160px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.navbar-menu li a:hover {
+    color: #2a9df4;
+}
+
+.navbar-login .login-button {
+    background-color: #0000ff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar-login .login-button:hover {
+    background-color: #000060;
+}
+
+.background-container {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../gambar/background-camping.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.overlay-blur {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+.hero-content-left {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+    color: #1a1a1a;
+}
+
+.hero-content-left h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-content-left p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: bold;
+    min-height: 90px;
+    color: #10217d;
+    white-space: pre-wrap;
+
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-media img {
+    width: 40px;
+    margin-right: 15px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+.alat_camping-section {
+  padding: 60px 40px;
+  text-align: center;
+  height: 760px;
+}
+
+.alat_camping-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: black;
+}
+
+.alat_camping-section h2::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 4px;
+    background-color: #2a9df4;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+
+.alat_camping-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.alat_camping-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 260px;
+  height: 380px;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alat_camping-card:hover {
+  transform: translateY(-6px);
+}
+
+.alat_camping-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.alat_camping-card h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.alat_camping-card p {
+  color: #2a9df4;
+  font-weight: bold;
+}
+
+.alat_camping-button {
+  margin-top: 35px;
+}
+
+.lihat-lainnya {
+  display: inline-block;
+  background-color: #2a9df4;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.lihat-lainnya:hover {
+  background-color: #007ac2;
+}
+
+.review-section {
+  padding: 60px 40px;
+  background-color: #2a9df4;
+  text-align: center;
+}
+
+.review-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.review-section h2::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 4px;
+  background-color: #ffffff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background-color: #ffffff;
+  border-left: 6px solid #ffffff;
+  border-radius: 10px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+  flex: 1 1 360px;
+  max-width: 600px;
+  transition: transform 0.3s;
+}
+
+.review-card:hover{
+    transform: translateY(-6px);
+}
+
+
+.review-card h4 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #2a9df4;
+}
+
+.review-date {
+  font-size: 13px;
+  color: #777;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.review-card p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.about-section {
+  background-color: #ffffff;
+  padding: 80px 40px;
+  min-height: 550px; 
+  display: flex;
+  align-items: center; 
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;   
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-left {
+  flex: 1 1 500px;
+}
+
+.about-left h2 {
+  font-size: 28px;
+  color: #2a9df4;
+  margin-bottom: 20px;
+}
+
+.about-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.about-right {
+  flex: 1 1 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-right iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: 10px;
+  border: 3px solid #2a9df4; 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-about, .footer-links, .footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact p img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #7f8c8d;
+  padding-top: 10px;
+  font-size: 13px;
+  color: #bdc3c7;
+}

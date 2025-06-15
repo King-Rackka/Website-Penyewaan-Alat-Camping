@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>Camp-Rent</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <a href="#"><img src="gambar/logo.png" alt="Logo Camp-Rent" /></a>
+        </div>
+        <ul class="navbar-menu">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="alat_sewa.html">Alat Camping</a></li>
+          <li><a href="pesan.html">Pesan Online</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="review.html">Komentar</a></li>
+        </ul>
+        <div class="navbar-login">
+          <a href="login.html" class="login-button">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="background-container">
+      <div class="overlay-blur"></div>
+      <div class="hero-content-left">
+        <h1>CAMP-RENT</h1>
+        <p id="typing-text"></p>
+        <div class="social-media">
+          <a href="https://wa.me/62895383051464" target="_blank">
+            <img src="gambar/icon/whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a href="https://instagram.com/camp_rent2025" target="_blank">
+            <img src="gambar/icon/instagram.png" alt="Instagram" />
+          </a>
+          <a href="mailto:camprent@gmail.com" target="_blank">
+            <img src="gambar/icon/email.png" alt="Email" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tentang -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-left">
+          <h2>Tentang Camp-Rent</h2>
+          <p>
+            Camp-Rent adalah platform penyewaan alat camping terpercaya yang
+            hadir untuk mendukung petualangan Anda tanpa perlu khawatir soal
+            perlengkapan. Kami menyediakan berbagai peralatan mulai dari
+            carrier, tenda, sleeping bag, hingga peralatan masak dan penerangan,
+            dengan kualitas terbaik dan harga terjangkau.
+          </p>
+          <p>
+            Kami percaya bahwa kegiatan outdoor seharusnya menyenangkan, mudah
+            diakses, dan bebas dari repot membawa alat sendiri. Dengan layanan
+            kami, Anda bisa fokus menikmati petualangan, biarkan kami yang urus
+            perlengkapannya.
+          </p>
+        </div>
+        <div class="about-right">
+          <iframe
+            src="https://www.youtube.com/embed/-yQ930a0Ov4?autoplay=1&mute=1&loop=1&playlist=-yQ930a0Ov4"
+            title="Tentang Camp-Rent"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alat Camping -->
+    <section class="alat_camping-section">
+      <h2>Alat Camping</h2>
+      <div class="alat_camping-container">
+        <div class="alat_camping-card">
+          <img src="gambar/carrier biru.jpeg" alt="Carrier 60L" />
+          <h4>Carrier Biru 60L</h4>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat_camping-card">
+          <img src="gambar/sleeping bag.jpeg" alt="Sleeping Bag" />
+          <h4>Sleeping Bag</h4>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat_camping-card">
+          <img src="gambar/kompor portable.jpeg" alt="Kompor Portable" />
+          <h4>Kompor Portable</h4>
+          <p>Rp 20.000 / Hari</p>
+        </div>
+        <div class="alat_camping-card">
+          <img src="gambar/headlamp.jpeg" alt="Headlamp" />
+          <h4>Headlamp</h4>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+      </div>
+      <div class="alat_camping-button">
+        <a href="alat_sewa.html" class="lihat-lainnya">Lebih Banyak</a>
+      </div>
+    </section>
+
+    <!-- Ulasan Customer -->
+    <section class="review-section">
+      <h2>Ulasan Customer</h2>
+      <div class="review-container">
+        <div class="review-card">
+          <h4>Ahmad Fasir</h4>
+          <span class="review-date">10 Mei 2025</span>
+          <p>
+            Pelayanannya ramah dan alatnya lengkap banget! Terima kasih
+            Camp-Rent.
+          </p>
+        </div>
+        <div class="review-card">
+          <h4>Natasya Difta</h4>
+          <span class="review-date">9 Februari 2025</span>
+          <p>
+            Alatnya bersih dan terawat. Proses peminjaman cepat dan mudah.
+            Recomended!
+          </p>
+        </div>
+        <div class="review-card">
+          <h4>Budi Santoso</h4>
+          <span class="review-date">8 Juni 2025</span>
+          <p>
+            Ini pertama kali saya sewa alat camping, dan Camp-Rent sangat
+            membantu!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Script Typing -->
+    <script>
+      const text =
+        "Kami Menyediakan Perlengkapan Camping Lengkap dan Terpercaya. ";
+      const typingText = document.getElementById("typing-text");
+
+      let index = 0;
+      let isDeleting = false;
+
+      function typeLoop() {
+        if (!isDeleting && index <= text.length) {
+          typingText.textContent = text.substring(0, index++);
+          setTimeout(typeLoop, 60);
+        } else if (isDeleting && index >= 0) {
+          typingText.textContent = text.substring(0, index--);
+          setTimeout(typeLoop, 40);
+        } else {
+          isDeleting = !isDeleting;
+          setTimeout(typeLoop, isDeleting ? 1000 : 500);
+        }
+      }
+
+      window.onload = typeLoop;
+    </script>
+
+    <!-- Footer -->
+    <footer style="background-color: #1f3b4d; color: white; padding: 30px 20px">
+      <div
+        style="display: flex; flex-wrap: wrap; justify-content: space-between"
+      >
+        <!-- Deskripsi -->
+        <div style="flex: 1 1 300px; margin-bottom: 20px">
+          <h3 style="margin-bottom: 10px">Camp-Rent</h3>
+          <p style="line-height: 1.6">
+            Platform penyewaan alat camping terpercaya untuk mendukung
+            petualangan outdoor Anda. Sewa alat dengan mudah, cepat, dan
+            terjangkau.
+          </p>
+        </div>
+
+        <!-- Menu Navigasi -->
+        <div style="flex: 1 1 150px; margin-bottom: 20px">
+          <h4 style="margin-bottom: 10px">Menu</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <a href="index.html" style="color: white; text-decoration: none"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                href="alat_sewa.html"
+                style="color: white; text-decoration: none"
+                >Alat Camping</a
+              >
+            </li>
+            <li>
+              <a href="pesan.html" style="color: white; text-decoration: none"
+                >Pesan Online</a
+              >
+            </li>
+            <li>
+              <a href="kontak.html" style="color: white; text-decoration: none"
+                >Kontak</a
+              >
+            </li>
+            <li>
+              <a href="review.html" style="color: white; text-decoration: none"
+                >Komentar</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div style="flex: 1 1 200px">
+          <h4 style="margin-bottom: 10px">Kontak</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <strong>📧 Email:</strong>
+              <a href="mailto:camprent@gmail.com" style="color: white"
+                >camprent@gmail.com</a
+              >
+            </li>
+            <li>
+              <strong>📸 Instagram:</strong>
+              <a
+                href="https://instagram.com/camp_rent2025"
+                target="_blank"
+                style="color: white"
+                >@camp_rent2025</a
+              >
+            </li>
+            <li>
+              <strong>📱 WhatsApp:</strong>
+              <a
+                href="https://wa.me/62895383051464"
+                target="_blank"
+                style="color: white"
+                >+62 895 3830 51464</a
+              >
+            </li>
+            <li>
+              <strong>📍 Alamat Toko:</strong> Jl. Manis No.17, Pondok Ranggon,
+              Jakarta Timur
+            </li>
+            <li>
+              <strong>🕒 Jam Operasional:</strong> Senin - Sabtu, 08.00 - 17.00
+              WIB
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin: 30px 0; border-color: #ccc" />
+      <div style="text-align: center; font-size: 14px">
+        © 2025 Camp-Rent. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

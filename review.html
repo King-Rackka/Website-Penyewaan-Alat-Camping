@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/review.css" />
+    <title>Form Review</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <a href="#"><img src="gambar/logo.png" alt="" /></a>
+        </div>
+
+        <ul class="navbar-menu">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="alat_sewa.html">Alat Camping</a></li>
+          <li><a href="pesan.html">Pesan Online</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="review.html">Komentar</a></li>
+        </ul>
+
+        <div class="navbar-login">
+          <a href="login.html" class="login-button">Login</a>
+        </div>
+      </div>
+    </nav>
+    <div class="review-wrapper">
+      <form id="contactForm" class="form-review">
+        <h2 class="form-title">Review atau Komentar</h2>
+
+        <label for="nama">Nama</label>
+        <input
+          type="text"
+          name="nama"
+          id="nama"
+          placeholder="Nama lengkap"
+          required
+        />
+
+        <label for="email">Alamat Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email@domain.com"
+          required
+        />
+
+        <label for="pesan">Review atau Komentar</label>
+        <textarea
+          name="pesan"
+          id="pesan"
+          placeholder="Tulis review kamu di sini..."
+          required
+        ></textarea>
+
+        <button type="submit">Kirim</button>
+        <p id="status" class="form-status"></p>
+      </form>
+    </div>
+
+    <p id="status"></p>
+    
+    <script>
+      const form = document.getElementById("contactForm");
+      const status = document.getElementById("status");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        fetch("https://formspree.io/f/xkgjkbgz", {
+          method: "POST",
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "Pesan kamu berhasil dikirim!";
+              form.reset();
+            } else {
+              status.innerHTML = "Oops! Ada masalah, coba lagi ya.";
+            }
+          })
+          .catch((error) => {
+            status.innerHTML = "Gagal terkirim: " + error;
+          });
+      });
+    </script>
+
+    <footer style="background-color: #1f3b4d; color: white; padding: 30px 20px">
+      <div
+        style="display: flex; flex-wrap: wrap; justify-content: space-between"
+      >
+        <!-- Deskripsi -->
+        <div style="flex: 1 1 300px; margin-bottom: 20px">
+          <h3 style="margin-bottom: 10px">Camp-Rent</h3>
+          <p style="line-height: 1.6">
+            Platform penyewaan alat camping terpercaya untuk mendukung
+            petualangan outdoor Anda. Sewa alat dengan mudah, cepat, dan
+            terjangkau.
+          </p>
+        </div>
+
+        <!-- Menu Navigasi -->
+        <div style="flex: 1 1 150px; margin-bottom: 20px">
+          <h4 style="margin-bottom: 10px">Menu</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <a href="index.html" style="color: white; text-decoration: none"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                href="alat_sewa.html"
+                style="color: white; text-decoration: none"
+                >Alat Camping</a
+              >
+            </li>
+            <li>
+              <a href="pesan.html" style="color: white; text-decoration: none"
+                >Pesan Online</a
+              >
+            </li>
+            <li>
+              <a href="kontak.html" style="color: white; text-decoration: none"
+                >Kontak</a
+              >
+            </li>
+            <li>
+              <a href="review.html" style="color: white; text-decoration: none"
+                >Komentar</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div style="flex: 1 1 200px">
+          <h4 style="margin-bottom: 10px">Kontak</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <strong>📧 Email:</strong>
+              <a href="mailto:camprent@gmail.com" style="color: white"
+                >camprent@gmail.com</a
+              >
+            </li>
+            <li>
+              <strong>📸 Instagram:</strong>
+              <a
+                href="https://instagram.com/camp_rent2025"
+                target="_blank"
+                style="color: white"
+                >@camp_rent2025</a
+              >
+            </li>
+            <li>
+              <strong>📱 WhatsApp:</strong>
+              <a
+                href="https://wa.me/62895383051464"
+                target="_blank"
+                style="color: white"
+                >+62 895 3830 51464</a
+              >
+            </li>
+            <li>
+              <strong>📍 Alamat Toko:</strong> Jl. Manis No.17, Pondok Ranggon,
+              Jakarta Timur
+            </li>
+            <li>
+              <strong>🕒 Jam Operasional:</strong> Senin - Sabtu, 08.00 - 17.00
+              WIB
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin: 30px 0; border-color: #ccc" />
+      <div style="text-align: center; font-size: 14px">
+        © 2025 Camp-Rent. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

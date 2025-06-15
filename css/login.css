@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('../gambar/background-login.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 200px;
+}
+
+.login-wrapper {
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.45);
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  color: white;
+  max-width: 400px;
+  min-height: 380px;
+  width: 100%;
+}
+
+.login-box h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+
+.login-box p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.login-form input {
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #222;
+}
+
+.login-form input::placeholder {
+  color: #666;
+}
+
+.btn-login {
+  padding: 18px;
+  margin-top: 30px;
+  background-color: #2a9df4;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #0077cc;
+}

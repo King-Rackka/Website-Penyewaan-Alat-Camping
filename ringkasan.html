@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rangkuman Penyewaan</title>
+    <link rel="stylesheet" href="css/ringkasan.css" />
+  </head>
+  <body>
+    <div class="rangkuman-wrapper">
+      <div class="rangkuman-box">
+        <h2>Rangkuman Penyewaan Alat Camping</h2>
+
+        <table class="info-table">
+          <tbody>
+            <tr>
+              <td>Nama</td>
+              <td>:</td>
+              <td id="out-nama"></td>
+            </tr>
+            <tr>
+              <td>Telepon</td>
+              <td>:</td>
+              <td id="out-telepon"></td>
+            </tr>
+            <tr>
+              <td>Tanggal Ambil</td>
+              <td>:</td>
+              <td id="out-tanggal"></td>
+            </tr>
+            <tr>
+              <td>Jumlah Hari</td>
+              <td>:</td>
+              <td id="out-hari"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Alat yang Disewa</h3>
+        <table class="alat-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Alat</th>
+              <th>Jumlah</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="alat-body"></tbody>
+          <tfoot>
+            <tr class="total">
+              <td colspan="3">Total Tagihan</td>
+              <td id="total-bayar">Rp 0</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="button-wrapper">
+          <a href="pesan.html"
+            ><button class="btn btn-primary">Pesan Lagi</button></a
+          >
+          <a href="index.html"><button class="btn btn-danger">Tidak</button></a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const alatHarga = {
+        "Carrier Biru 50L": 15000,
+        "Carrier Biru 60L": 20000,
+        "Carrier Merah 50L": 15000,
+        "Carrier Hitam 60L": 20000,
+        "Carrier Cokelat 60L": 20000,
+        "Carrier Pink 50L": 15000,
+        "Sepatu Gunung Putih": 25000,
+        "Sepatu Gunung Pink": 25000,
+        "Jaket Gunung Laki-laki": 15000,
+        "Jaket Gunung Perempuan": 15000,
+        "Raincoat Hitam": 15000,
+        "Raincoat Putih": 15000,
+        "Sandal Gunung": 5000,
+        Tenda: 60000,
+        "Tenda 200x200": 75000,
+        "Sleeping Bag Anak": 8000,
+        "Sleeping Bag Merah": 10000,
+        "Sleeping Bag Pink": 10000,
+        "Sleeping Bag Putih": 10000,
+        Hammock: 10000,
+        Flysheet: 20000,
+        "Kompor Portable": 20000,
+        Termos: 10000,
+        "Gas Portable": 30000,
+        "Spatula Lipat": 7000,
+        "Gelas Lipat": 5000,
+        "Nesting (Alat Masak)": 10000,
+        Headlamp: 5000,
+        "Lampu Tenda": 5000,
+        Senter: 5000,
+        "Sarung Tangan Pink": 5000,
+        "Sarung Tangan Putih": 5000,
+        Gaiter: 7000,
+        Powerbank: 8000,
+        "Tracking Pole": 15000,
+        "Pisau Lipat": 8000,
+        Sekop: 8000,
+        Kompas: 5000,
+        Kacamata: 5000,
+        "Sapu Portable": 5000,
+      };
+
+      const outNama = document.getElementById("out-nama");
+      const outTelepon = document.getElementById("out-telepon");
+      const outTanggal = document.getElementById("out-tanggal");
+      const outHari = document.getElementById("out-hari");
+      const alatBody = document.getElementById("alat-body");
+      const totalBayar = document.getElementById("total-bayar");
+      const dataString = localStorage.getItem("pesanan_data");
+
+      if (dataString) {
+        const [nama, telepon, tanggal, hari, alatStr] = dataString.split("~");
+        const hariInt = parseInt(hari);
+
+        outNama.textContent = nama;
+        outTelepon.textContent = telepon;
+        outTanggal.textContent = tanggal;
+        outHari.textContent = hari + " hari";
+
+        let total = 0;
+
+        if (alatStr) {
+          const alatList = alatStr.split(";");
+          alatList.forEach((item, index) => {
+            const [namaAlat, jumlah] = item.split("|");
+            const jml = parseInt(jumlah);
+            const harga = alatHarga[namaAlat] || 0;
+            const subtotal = harga * jml * hariInt;
+            total += subtotal;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${namaAlat}</td>
+          <td>${jml}</td>
+          <td>Rp ${subtotal.toLocaleString()}</td>
+        `;
+            alatBody.appendChild(row);
+          });
+        }
+
+        totalBayar.textContent = "Rp " + total.toLocaleString();
+      }
+    </script>
+  </body> 
+</html>

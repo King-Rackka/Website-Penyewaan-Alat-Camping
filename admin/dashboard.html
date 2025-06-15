@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <title>Dashboard - Admin</title>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <a href="#"><img src="../gambar/logo.png" alt=""></a>
+    </div>
+
+    <ul class="navbar-menu">
+      <li><a href="#orderan">Daftar Penyewaan Alat</a></li>
+      <li><a href="#alat_camping">Daftar Alat Camping</a></li>
+      <li><a href="#komentar">Ulasan Customer</a></li>
+    </ul>
+
+    <div class="navbar-logout">
+      <a href="../index.html" class="logout-button">Log Out</a>
+    </div>
+  </div>
+</nav>
+
+<section id="orderan" class="orderan-section">
+  <h2>Daftar Orderan</h2>
+  <table class="orderan-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Pemesan</th>
+        <th>Alat yang Disewa</th>
+        <th>Total Harga</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="orderan-body">
+      
+    </tbody>
+  </table>
+  <p id="orderan-empty" class="empty-text" style="display:none;">Tidak ada orderan</p>
+</section>
+
+
+<section id="alat_camping" class="alat-tabel-section">
+  <h2>Daftar Alat Camping</h2>
+  <table class="alat-tabel">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Gambar</th>
+        <th>Nama Alat</th>
+        <th>Harga</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><img src="../gambar/tenda.jpeg" alt="Tenda"></td><td>Tenda</td><td>Rp 60.000 / Hari</td></tr>
+      <tr><td>2</td><td><img src="../gambar/carrier biru.jpeg" alt="Carrier Biru"></td><td>Carrier Biru</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>3</td><td><img src="../gambar/carrier merah.jpeg" alt="Carrier Merah"></td><td>Carrier Merah</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>4</td><td><img src="../gambar/carrier pink.jpeg" alt="Carrier Pink"></td><td>Carrier Pink</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>5</td><td><img src="../gambar/sepatu gunung putih.jpeg" alt="Sepatu Putih"></td><td>Sepatu Gunung Putih</td><td>Rp 25.000 / Hari</td></tr>
+      <tr><td>6</td><td><img src="../gambar/sleeping bag.jpeg" alt="Sleeping Bag"></td><td>Sleeping Bag Pink</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>7</td><td><img src="../gambar/sleeping bag 2.jpeg" alt="Sleeping Bag 2"></td><td>Sleeping Bag Putih</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>8</td><td><img src="../gambar/hammock.jpeg" alt="Hammock"></td><td>Hammock</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>9</td><td><img src="../gambar/jaket gunung laki.jpeg" alt="Jaket Pria"></td><td>Jaket Gunung Pria</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>10</td><td><img src="../gambar/jaket gunung perempuan.png" alt="Jaket Wanita"></td><td>Jaket Gunung Wanita</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>11</td><td><img src="../gambar/raincoat hitam.png" alt="Raincoat Hitam"></td><td>Raincoat Hitam</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>12</td><td><img src="../gambar/raincoat putih.png" alt="Raincoat Putih"></td><td>Raincoat Putih</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>13</td><td><img src="../gambar/sarung tangan perempuan.png" alt="Sarung Tangan Pink"></td><td>Sarung Tangan Pink</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>14</td><td><img src="../gambar/sarung tangan putih.jpeg" alt="Sarung Tangan Putih"></td><td>Sarung Tangan Putih</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>15</td><td><img src="../gambar/sendal gunung.jpeg" alt="Sandal Gunung"></td><td>Sandal Gunung</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>16</td><td><img src="../gambar/sepatu gunung.jpeg" alt="Sepatu Pink"></td><td>Sepatu Gunung Pink</td><td>Rp 25.000 / Hari</td></tr>
+      <tr><td>17</td><td><img src="../gambar/kompor portable.jpeg" alt="Kompor"></td><td>Kompor Portable</td><td>Rp 20.000 / Hari</td></tr>
+      <tr><td>18</td><td><img src="../gambar/gas portable.jpeg" alt="Gas Portable"></td><td>Gas Portable</td><td>Rp 30.000 / Hari</td></tr>
+      <tr><td>19</td><td><img src="../gambar/nesting.jpeg" alt="Nesting"></td><td>Nesting</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>20</td><td><img src="../gambar/headlamp.jpeg" alt="Headlamp"></td><td>Headlamp</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>21</td><td><img src="../gambar/lampu tenda.jpeg" alt="Lampu Tenda"></td><td>Lampu Tenda</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>22</td><td><img src="../gambar/senter.jpeg" alt="Senter"></td><td>Senter</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>23</td><td><img src="../gambar/gaiter.jpeg" alt="Gaiter"></td><td>Gaiter</td><td>Rp 7.000 / Hari</td></tr>
+      <tr><td>24</td><td><img src="../gambar/fly sheet.jpeg" alt="Fly Sheet"></td><td>Fly Sheet</td><td>Rp 20.000 / Hari</td></tr>
+      <tr><td>25</td><td><img src="../gambar/tracking pole.jpeg" alt="Tracking Pole"></td><td>Tracking Pole</td><td>Rp 15.000 / Hari</td></tr>
+      <tr><td>26</td><td><img src="../gambar/termos.jpg" alt="Termos"></td><td>Termos</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>27</td><td><img src="../gambar/spatula.jpg" alt="Spatula Lipat"></td><td>Spatula Lipat</td><td>Rp 7.000 / Hari</td></tr>
+      <tr><td>28</td><td><img src="../gambar/gelas.jpeg" alt="Gelas Lipat"></td><td>Gelas Lipat</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>29</td><td><img src="../gambar/powerbank.avif" alt="Powerbank"></td><td>Powerbank</td><td>Rp 8.000 / Hari</td></tr>
+      <tr><td>30</td><td><img src="../gambar/sleeping bag 3.webp" alt="Sleeping Bag Merah"></td><td>Sleeping Bag Merah</td><td>Rp 10.000 / Hari</td></tr>
+      <tr><td>31</td><td><img src="../gambar/sleeping bag anak.jpg" alt="Sleeping Bag Anak"></td><td>Sleeping Bag Anak</td><td>Rp 8.000 / Hari</td></tr>
+      <tr><td>32</td><td><img src="../gambar/sapu.jpg" alt="Sapu Portable"></td><td>Sapu Portable</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>33</td><td><img src="../gambar/kacamata.jpeg" alt="Kacamata"></td><td>Kacamata</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>34</td><td><img src="../gambar/kompas.jpg" alt="Kompas"></td><td>Kompas</td><td>Rp 5.000 / Hari</td></tr>
+      <tr><td>35</td><td><img src="../gambar/sekop.jpeg" alt="Sekop"></td><td>Sekop</td><td>Rp 8.000 / Hari</td></tr>
+      <tr><td>36</td><td><img src="../gambar/pisau lipat.jpg" alt="Pisau Lipat"></td><td>Pisau Lipat</td><td>Rp 8.000 / Hari</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="komentar" class="komentar-section">
+  <h2>Komentar Customer</h2>
+  <table class="komentar-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Tanggal</th>
+        <th>Komentar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Ahmad Fasir</td>
+        <td>10 Mei 2025</td>
+        <td>Pelayanannya ramah dan alatnya lengkap banget! Terima kasih Camp-Rent.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Natasya Difta</td>
+        <td>9 Februari 2025</td>
+        <td>Alatnya bersih dan terawat. Proses peminjaman cepat dan mudah. Recomended!</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Budi Santoso</td>
+        <td>8 Juni 2025</td>
+        <td>Ini pertama kali saya sewa alat camping, dan Camp-Rent sangat membantu!</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<script>
+  const hargaAlat = {
+    "Carrier Biru 50L": 15000,
+    "Carrier Biru 60L": 20000,
+    "Carrier Merah 50L": 15000,
+    "Carrier Hitam 60L": 20000,
+    "Carrier Cokelat 60L": 20000,
+    "Carrier Pink 50L": 15000,
+    "Sepatu Gunung Putih": 25000,
+    "Sepatu Gunung Pink": 25000,
+    "Jaket Gunung Laki-laki": 15000,
+    "Jaket Gunung Perempuan": 15000,
+    "Raincoat Hitam": 15000,
+    "Raincoat Putih": 15000,
+    "Sandal Gunung": 5000,
+    "Tenda": 60000,
+    "Tenda 200x200" : 75000,
+    "Sleeping Bag Anak" : 8000,
+    "Sleeping Bag Merah": 10000,
+    "Sleeping Bag Pink": 10000,
+    "Sleeping Bag Putih": 10000,
+    "Hammock": 10000,
+    "Flysheet": 20000,
+    "Kompor Portable": 20000,
+    "Termos" : 10000,
+    "Gas Portable": 30000,
+    "Spatula Lipat" : 7000,
+    "Gelas Lipat" : 5000,
+    "Nesting (Alat Masak)": 10000,
+    "Headlamp": 5000,
+    "Lampu Tenda": 5000,
+    "Senter": 5000,
+    "Sarung Tangan Pink": 5000,
+    "Sarung Tangan Putih": 5000,
+    "Gaiter": 7000,
+    "Powerbank" : 8000,
+    "Tracking Pole": 15000,
+    "Pisau Lipat" : 8000,
+    "Sekop" : 8000,
+    "Kompas" : 5000,
+    "Kacamata" : 5000,
+    "Sapu Portable" : 5000,
+  };
+
+  const dataOrderan = JSON.parse(localStorage.getItem("dataOrderan")) || [];
+    const tbody = document.getElementById("orderan-body");
+    const emptyText = document.getElementById("orderan-empty");
+
+    if (dataOrderan.length === 0) {
+      emptyText.style.display = "block";
+    } else {
+      dataOrderan.forEach((order, i) => {
+        let total = 0;
+        const alatList = order.alat.map(item => {
+          const subtotal = (hargaAlat[item.nama] || 0) * item.jumlah * order.hari;
+          total += subtotal;
+          return `${item.nama} (${item.jumlah})`;
+        }).join(", ");
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${i + 1}</td>
+          <td>${order.nama}</td>
+          <td>${alatList}</td>
+          <td>Rp ${total.toLocaleString()}</td>
+          <td><button class="btn-selesai">Selesai</button></td>
+          <td><button class="btn-hapus">Hapus</button></td>
+        `;
+        tbody.appendChild(tr);
+
+        // Tombol selesai
+        const selesaiBtn = tr.querySelector(".btn-selesai");
+        const hapusBtn = tr.querySelector(".btn-hapus");
+
+        selesaiBtn.addEventListener("click", function() {
+        // Ambil td tempat tombol berada
+        const td = selesaiBtn.parentElement;
+
+        // Kosongkan td
+        td.innerHTML = "";
+
+        // Tambahkan tulisan Pesanan Selesai
+        const selesaiText = document.createElement("span");
+        selesaiText.textContent = "Pesanan Selesai";
+        selesaiText.style.color = "green";
+        selesaiText.style.fontWeight = "bold";
+
+        td.appendChild(selesaiText);
+      });
+
+
+
+        // Tombol hapus
+        hapusBtn.addEventListener("click", function () {
+          tr.remove();
+
+          const updated = JSON.parse(loQcalStorage.getItem("dataOrderan")) || [];
+          updated.splice(i, 1);
+          localStorage.setItem("dataOrderan", JSON.stringify(updated));
+
+          if (tbody.children.length === 0) {
+            emptyText.style.display = "block";
+          }
+        });
+      });
+    }
+</script>
+
+</body>
+</html>

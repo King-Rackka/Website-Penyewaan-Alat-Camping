@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/alat.css" />
+    <title>Alat Camping</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <a href="#"><img src="gambar/logo.png" alt="" /></a>
+        </div>
+
+        <ul class="navbar-menu">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="alat_sewa.html">Alat Camping</a></li>
+          <li><a href="pesan.html">Pesan Online</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="review.html">Komentar</a></li>
+        </ul>
+
+        <div class="navbar-login">
+          <a href="login.html" class="login-button">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="alat-section">
+      <h1 class="judul-section">Alat Camping</h1>
+
+      <div style="text-align: center; margin-top: 20px; margin-bottom: 56px">
+        <label
+          for="kategori"
+          style="font-weight: bold; margin-right: 10px; margin-bottom: 40px"
+          >Kategori:</label
+        >
+        <select
+          id="kategori"
+          onchange="setFilter(this.value)"
+          style="padding: 10px; border-radius: 5px"
+        >
+          <option value="all">Semua</option>
+          <option value="tas">Tas / Carrier</option>
+          <option value="pakaian">Pakaian</option>
+          <option value="tidur">Tempat Tidur</option>
+          <option value="masak">Alat Masak</option>
+          <option value="penerangan">Penerangan</option>
+          <option value="aksesori">Aksesoris</option>
+          <option value="peralatan">Peralatan</option>
+        </select>
+      </div>
+
+      <div class="alat-container">
+        <div class="alat-card tidur">
+          <img src="gambar/tenda.jpeg" alt="Tenda" />
+          <h3>Tenda</h3>
+          <p>Rp 60.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/tenda 3.png" alt="Tenda" />
+          <h3>Tenda 200x200</h3>
+          <p>Rp 75.000 / Hari</p>
+        </div>
+        <div class="alat-card tas">
+          <img src="gambar/carrier biru.jpeg" alt="Carrier" />
+          <h3>Carrier Biru 50 liter</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card tas">
+          <img src="gambar/carrier biru60.jpg" alt="Carrier" />
+          <h3>Carrier Biru 60 liter</h3>
+          <p>Rp 20.000 / Hari</p>
+        </div>
+        <div class="alat-card tas">
+          <img src="gambar/carrier item.jpeg" alt="Carrier" />
+          <h3>Carrier Hitam 60 liter</h3>
+          <p>Rp 20.000 / Hari</p>
+        </div>
+        <div class="alat-card tas">
+          <img src="gambar/carrier merah.jpeg" alt="Carrier" />
+          <h3>Carrier Merah 50 liter</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card tas">
+          <img src="gambar/carrier pink.jpeg" alt="Carrier" />
+          <h3>Carrier Pink 50 liter</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card tas">
+          <img src="gambar/carrier coklat.webp" alt="Carrier" />
+          <h3>Carrier Coklat 60 liter</h3>
+          <p>Rp 20.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/sepatu gunung putih.jpeg" alt="Sepatu Gunung" />
+          <h3>Sepatu Gunung Putih</h3>
+          <p>Rp 25.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/sepatu gunung.jpeg" alt="Sepatu Gunung" />
+          <h3>Sepatu Gunung Pink</h3>
+          <p>Rp 25.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/sleeping bag.jpeg" alt="Sleeping Bag" />
+          <h3>Sleeping Bag Pink</h3>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/sleeping bag 2.jpeg" alt="Sleeping Bag" />
+          <h3>Sleeping Bag Putih</h3>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/sleeping bag 3.webp" alt="Sleeping Bag" />
+          <h3>Sleeping Bag Merah</h3>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/sleeping bag anak.jpg" alt="Sleeping Bag" />
+          <h3>Sleeping Bag Anak</h3>
+          <p>Rp 8.000 / Hari</p>
+        </div>
+        <div class="alat-card masak">
+          <img src="gambar/kompor portable.jpeg" alt="Kompor" />
+          <h3>Kompor Portable</h3>
+          <p>Rp 20.000 / Hari</p>
+        </div>
+        <div class="alat-card masak">
+          <img src="gambar/termos.jpg" alt="Kompor" />
+          <h3>Termos</h3>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat-card masak">
+          <img src="gambar/gas portable.jpeg" alt="Gas" />
+          <h3>Gas Portable</h3>
+          <p>Rp 30.000 / Hari</p>
+        </div>
+        <div class="alat-card masak">
+          <img src="gambar/spatula.jpg" alt="Kompor" />
+          <h3>Spatula Lipat</h3>
+          <p>Rp 7.000 / Hari</p>
+        </div>
+        <div class="alat-card masak">
+          <img src="gambar/gelas.jpeg" alt="Kompor" />
+          <h3>Gelas Lipat</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/hammock.jpeg" alt="Hammock" />
+          <h3>Hammock</h3>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat-card penerangan">
+          <img src="gambar/headlamp.jpeg" alt="Headlamp" />
+          <h3>Headlamp</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card penerangan">
+          <img src="gambar/lampu tenda.jpeg" alt="Lampu Tenda" />
+          <h3>Lampu Tenda</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card masak">
+          <img src="gambar/nesting.jpeg" alt="Nesting" />
+          <h3>Nesting</h3>
+          <p>Rp 10.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/jaket gunung laki.jpeg" alt="Jaket" />
+          <h3>Jaket Gunung Pria</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/jaket gunung perempuan.png" alt="Jaket" />
+          <h3>Jaket Gunung Perempuan</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/raincoat hitam.png" alt="Raincoat" />
+          <h3>Raincoat Hitam</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/raincoat putih.png" alt="Raincoat" />
+          <h3>Raincoat Putih</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card aksesori">
+          <img src="gambar/sarung tangan perempuan.png" alt="Sarung Tangan" />
+          <h3>Sarung Tangan Pink</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card aksesori">
+          <img src="gambar/sarung tangan putih.jpeg" alt="Sarung Tangan" />
+          <h3>Sarung Tangan Putih</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card pakaian">
+          <img src="gambar/sendal gunung.jpeg" alt="Sendal Gunung" />
+          <h3>Sandal Gunung</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card penerangan">
+          <img src="gambar/senter.jpeg" alt="Senter" />
+          <h3>Senter</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card aksesori">
+          <img src="gambar/gaiter.jpeg" alt="Gaiter" />
+          <h3>Gaiter</h3>
+          <p>Rp 7.000 / Hari</p>
+        </div>
+        <div class="alat-card aksesori">
+          <img src="gambar/powerbank.avif" alt="Gaiter" />
+          <h3>powerbank</h3>
+          <p>Rp 8.000 / Hari</p>
+        </div>
+        <div class="alat-card tidur">
+          <img src="gambar/fly sheet.jpeg" alt="Fly Sheet" />
+          <h3>Fly Sheet</h3>
+          <p>Rp 20.000 / Hari</p>
+        </div>
+        <div class="alat-card peralatan">
+          <img src="gambar/tracking pole.jpeg" alt="Tracking Pole" />
+          <h3>Tracking Pole</h3>
+          <p>Rp 15.000 / Hari</p>
+        </div>
+        <div class="alat-card peralatan">
+          <img src="gambar/pisau lipat.jpg" alt="Tracking Pole" />
+          <h3>Pisau Lipat</h3>
+          <p>Rp 8.000 / Hari</p>
+        </div>
+        <div class="alat-card peralatan">
+          <img src="gambar/sekop.jpeg" alt="Tracking Pole" />
+          <h3>Sekop</h3>
+          <p>Rp 8.000 / Hari</p>
+        </div>
+        <div class="alat-card peralatan">
+          <img src="gambar/kompas.jpg" alt="Tracking Pole" />
+          <h3>Kompas</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card peralatan">
+          <img src="gambar/kacamata.jpeg" alt="Tracking Pole" />
+          <h3>Kacamata</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+        <div class="alat-card peralatan">
+          <img src="gambar/sapu.jpg" alt="Tracking Pole" />
+          <h3>Sapu Portable</h3>
+          <p>Rp 5.000 / Hari</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="pagination">
+      <button class="page-btn active" onclick="showPage(1)">1</button>
+      <button class="page-btn" onclick="showPage(2)">2</button>
+      <button class="page-btn" onclick="showPage(3)">3</button>
+      <button class="page-btn" onclick="showPage(4)">4</button>
+      <button class="page-btn" onclick="showPage(5)">5</button>
+    </div>
+
+    <footer style="background-color: #1f3b4d; color: white; padding: 30px 20px">
+      <div
+        style="display: flex; flex-wrap: wrap; justify-content: space-between"
+      >
+        <!-- Deskripsi -->
+        <div style="flex: 1 1 300px; margin-bottom: 20px">
+          <h3 style="margin-bottom: 10px">Camp-Rent</h3>
+          <p style="line-height: 1.6">
+            Platform penyewaan alat camping terpercaya untuk mendukung
+            petualangan outdoor Anda. Sewa alat dengan mudah, cepat, dan
+            terjangkau.
+          </p>
+        </div>
+
+        <!-- Menu Navigasi -->
+        <div style="flex: 1 1 150px; margin-bottom: 20px">
+          <h4 style="margin-bottom: 10px">Menu</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <a href="index.html" style="color: white; text-decoration: none"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                href="alat_sewa.html"
+                style="color: white; text-decoration: none"
+                >Alat Camping</a
+              >
+            </li>
+            <li>
+              <a href="pesan.html" style="color: white; text-decoration: none"
+                >Pesan Online</a
+              >
+            </li>
+            <li>
+              <a href="kontak.html" style="color: white; text-decoration: none"
+                >Kontak</a
+              >
+            </li>
+            <li>
+              <a href="review.html" style="color: white; text-decoration: none"
+                >Komentar</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div style="flex: 1 1 200px">
+          <h4 style="margin-bottom: 10px">Kontak</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <strong>📧 Email:</strong>
+              <a href="mailto:camprent@gmail.com" style="color: white"
+                >camprent@gmail.com</a
+              >
+            </li>
+            <li>
+              <strong>📸 Instagram:</strong>
+              <a
+                href="https://instagram.com/camp_rent2025"
+                target="_blank"
+                style="color: white"
+                >@camp_rent2025</a
+              >
+            </li>
+            <li>
+              <strong>📱 WhatsApp:</strong>
+              <a
+                href="https://wa.me/62895383051464"
+                target="_blank"
+                style="color: white"
+                >+62 895 3830 51464</a
+              >
+            </li>
+            <li>
+              <strong>📍 Alamat Toko:</strong> Jl. Manis No.17, Pondok Ranggon,
+              Jakarta Timur
+            </li>
+            <li>
+              <strong>🕒 Jam Operasional:</strong> Senin - Sabtu, 08.00 - 17.00
+              WIB
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin: 30px 0; border-color: #ccc" />
+      <div style="text-align: center; font-size: 14px">
+        © 2025 Camp-Rent. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="js/pagination+kategori.js"></script>
+    
+  </body>
+</html>

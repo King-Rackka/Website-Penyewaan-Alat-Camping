@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e1e1e1;
+    padding-top: 80px;
+}
+
+.navbar {
+    background-color: white;
+    padding: 0 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-logo a {
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-logo img{
+    margin-top: 20px;
+    width: 160px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-menu li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.navbar-menu li a:hover {
+    color: #2a9df4;
+}
+
+.navbar-login .login-button {
+    background-color: #0000ff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.navbar-login .login-button:hover {
+    background-color: #000060;
+}
+
+.alat-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.judul-section {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: black;
+}
+
+.judul-section::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 4px;
+    background-color: #2a9df4;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.alat-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.alat-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 25px;
+  width: 270px;
+  height: 380px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.alat-card:hover {
+  transform: translateY(-5px);
+}
+
+.alat-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.alat-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.alat-card p {
+  color: #2a9df4;
+  font-weight: bold;
+}
+
+.pagination {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.page-btn {
+  background-color: #fff;
+  border: 1px solid #2a9df4;
+  color: #2a9df4;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.page-btn:hover {
+  background-color: #2a9df4;
+  color: #fff;
+}
+
+.page-btn.active {
+  background-color: #2a9df4;
+  color: white;
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-about, .footer-links, .footer-contact {
+  flex: 1 1 250px;
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact p img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #7f8c8d;
+  padding-top: 10px;
+  font-size: 13px;
+  color: #bdc3c7;
+} 

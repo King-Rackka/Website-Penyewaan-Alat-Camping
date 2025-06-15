@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/pesan.css" />
+    <title>Pesan Online</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <a href="#"><img src="gambar/logo.png" alt="" /></a>
+        </div>
+
+        <ul class="navbar-menu">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="alat_sewa.html">Alat Camping</a></li>
+          <li><a href="pesan.html">Pesan Online</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="review.html">Komentar</a></li>
+        </ul>
+
+        <div class="navbar-login">
+          <a href="login.html" class="login-button">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="form-wrapper">
+      <form id="orderForm" class="form-order">
+        <h2>Pemesanan Alat Camping</h2>
+
+        <label for="nama">Nama Pemesan</label>
+        <input type="text" id="nama" required />
+
+        <label for="telepon">Nomor Telepon</label>
+        <input type="number" id="telepon" required />
+
+        <label for="tanggal">Tanggal Ambil</label>
+        <input type="date" style="width: 160px" id="tanggal" required />
+
+        <label for="hari">Untuk Berapa Hari</label>
+        <input type="number" style="width: 160px" id="hari" required />
+
+        <hr />
+
+        <div id="daftar-alat"></div>
+
+        <!-- <button type="submit">Simpan Pesanan</button>
+        <p id="notif"></p> -->
+        <button type="button" onclick="tampilkanRingkasan()">
+          Simpan Pesanan
+        </button>
+        <div id="ringkasanPesanan" class="ringkasan-pesanan" style="display: none;"></div>
+        <button
+          type="button"
+          id="btnKonfirmasi"
+          class="btn-konfirmasi"
+          style="display: none"
+          onclick="konfirmasiPesanan()"
+        >
+          Konfirmasi Pemesanan
+        </button>
+
+      </form>
+    </div>
+
+    <script>
+      const dataAlat = {
+        "Tas / Carrier": [
+          "Carrier Biru 50L",
+          "Carrier Biru 60L",
+          "Carrier Hitam 60L",
+          "Carrier Merah 50L",
+          "Carrier Pink 50L",
+          "Carrier Cokelat 60L",
+        ],
+        Pakaian: [
+          "Sepatu Gunung Putih",
+          "Sepatu Gunung Pink",
+          "Jaket Gunung Laki-laki",
+          "Jaket Gunung Perempuan",
+          "Raincoat Hitam",
+          "Raincoat Putih",
+          "Sandal Gunung",
+        ],
+        "Tempat Tidur": [
+          "Tenda",
+          "Tenda 200x200",
+          "Sleeping Bag Pink",
+          "Sleeping Bag Putih",
+          "Sleeping Bag Anak",
+          "Sleeping Bag Merah",
+          "Hammock",
+          "Flysheet",
+        ],
+        "Alat Masak": [
+          "Kompor Portable",
+          "Termos",
+          "Gas Portable",
+          "Spatula Lipat",
+          "Gelas Lipat",
+          "Nesting (Alat Masak)",
+        ],
+        Penerangan: ["Headlamp", "Lampu Tenda", "Senter"],
+        Aksesoris: [
+          "Sarung Tangan Pink",
+          "Sarung Tangan Putih",
+          "Gaiter",
+          "Powerbank",
+        ],
+        Peralatan: [
+          "Tracking Pole",
+          "Pisau Lipat",
+          "Sekop",
+          "Kompas",
+          "Kacamata",
+          "Sapu Portable",
+        ],
+      };
+
+      const daftarAlat = document.getElementById("daftar-alat");
+
+      Object.entries(dataAlat).forEach(([kategori, items]) => {
+        const section = document.createElement("div");
+        section.className = "kategori-section";
+
+        const title = document.createElement("h3");
+        title.textContent = kategori;
+        section.appendChild(title);
+
+        items.forEach((namaAlat, index) => {
+          const alatId = kategori.replace(/\s/g, "-") + "-" + index;
+
+          const item = document.createElement("div");
+          item.className = "alat-item";
+
+          item.innerHTML = `
+          <label>
+            <input type="checkbox" name="alat" value="${namaAlat}" onchange="toggleJumlah('${alatId}')">
+            ${namaAlat}
+          </label>
+          <input type="number" id="jumlah-${alatId}" class="jumlah-input" name="jumlah_${namaAlat}" placeholder="Jumlah" min="1" style="display: none;" />
+        `;
+
+          section.appendChild(item);
+        });
+
+        daftarAlat.appendChild(section);
+      });
+
+      function toggleJumlah(id) {
+        const input = document.getElementById("jumlah-" + id);
+        const checkbox = input.previousElementSibling.querySelector(
+          "input[type='checkbox']"
+        );
+        input.style.display = checkbox.checked ? "inline-block" : "none";
+        if (!checkbox.checked) input.value = "";
+      }
+    </script>
+
+    <script>
+      let dataSementara = {};
+
+      function tampilkanRingkasan() {
+        const nama = document.getElementById("nama").value.trim();
+        const telepon = document.getElementById("telepon").value.trim();
+        const tanggal = document.getElementById("tanggal").value;
+        const hari = parseInt(document.getElementById("hari").value);
+
+        if (!nama || !telepon || !tanggal || !hari) {
+          alert("Mohon lengkapi semua data pemesan.");
+          return;
+        }
+
+        const alatList = [];
+        const checkboxes = document.querySelectorAll(
+          'input[name="alat"]:checked'
+        );
+
+        if (checkboxes.length === 0) {
+          alert("Pilih setidaknya satu alat camping.");
+          return;
+        }
+
+        let validJumlah = true;
+        checkboxes.forEach((cb) => {
+          const jumlahInput = document.querySelector(
+            `input[name="jumlah_${cb.value}"]`
+          );
+          const jumlah = parseInt(jumlahInput?.value);
+          if (!jumlah || jumlah < 1) {
+            validJumlah = false;
+          }
+          alatList.push({ nama: cb.value, jumlah });
+        });
+
+        if (!validJumlah) {
+          alert("Jumlah alat yang dipilih harus diisi minimal 1.");
+          return;
+        }
+
+        // Simpan data sementara
+        dataSementara = { nama, telepon, tanggal, hari, alatList };
+
+        // Tampilkan ringkasan
+        let ringkasanHTML = `<h3>Ringkasan Pesanan:</h3>`;
+        ringkasanHTML += `<p><strong>Nama:</strong> ${nama}</p>`;
+        ringkasanHTML += `<p><strong>No. Telepon:</strong> ${telepon}</p>`;
+        ringkasanHTML += `<p><strong>Tanggal Ambil:</strong> ${tanggal}</p>`;
+        ringkasanHTML += `<p><strong>Durasi:</strong> ${hari} hari</p>`;
+        ringkasanHTML += `<p><strong>Alat yang Dipilih:</strong></p><ul>`;
+        alatList.forEach((item) => {
+          ringkasanHTML += `<li>${item.nama} - ${item.jumlah} buah</li>`;
+        });
+        ringkasanHTML += `</ul>`;
+
+        document.getElementById("ringkasanPesanan").innerHTML = ringkasanHTML;
+        document.getElementById("ringkasanPesanan").style.display = "block";
+        document.getElementById("btnKonfirmasi").style.display = "inline-block";
+      }
+
+      function konfirmasiPesanan() {
+        const { nama, telepon, tanggal, hari, alatList } = dataSementara;
+
+        // Simpan ringkasan untuk ringkasan.html
+        const ringkasanStr = `${nama}~${telepon}~${tanggal}~${hari}~${alatList
+          .map((a) => `${a.nama}|${a.jumlah}`)
+          .join(";")}`;
+        localStorage.setItem("pesanan_data", ringkasanStr);
+
+        // Simpan ke dataOrderan
+        const semuaOrderan =
+          JSON.parse(localStorage.getItem("dataOrderan")) || [];
+        semuaOrderan.push({ nama, hari, alat: alatList });
+        localStorage.setItem("dataOrderan", JSON.stringify(semuaOrderan));
+
+        // Arahkan ke ringkasan
+        window.location.href = "ringkasan.html";
+      }
+    </script>
+
+    <script>
+      document
+        .getElementById("orderForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nama = document.getElementById("nama").value;
+          const telepon = document.getElementById("telepon").value;
+          const tanggal = document.getElementById("tanggal").value;
+          const hari = parseInt(document.getElementById("hari").value);
+
+          const alatList = [];
+          document
+            .querySelectorAll('input[name="alat"]:checked')
+            .forEach((cb) => {
+              const jumlah = parseInt(
+                document.querySelector(`input[name="jumlah_${cb.value}"]`)
+                  ?.value || "1"
+              );
+              alatList.push({ nama: cb.value, jumlah });
+            });
+
+          // Simpan juga ke localStorage (untuk ringkasan)
+          const ringkasanStr = `${nama}~${telepon}~${tanggal}~${hari}~${alatList
+            .map((a) => `${a.nama}|${a.jumlah}`)
+            .join(";")}`;
+          localStorage.setItem("pesanan_data", ringkasanStr);
+
+          // Simpan ke array dataOrderan
+          const semuaOrderan =
+            JSON.parse(localStorage.getItem("dataOrderan")) || [];
+          semuaOrderan.push({ nama, hari, alat: alatList });
+          localStorage.setItem("dataOrderan", JSON.stringify(semuaOrderan));
+
+          // Redirect
+          window.location.href = "ringkasan.html";
+        });
+    </script>
+
+    <footer style="background-color: #1f3b4d; color: white; padding: 30px 20px">
+      <div
+        style="display: flex; flex-wrap: wrap; justify-content: space-between"
+      >
+        <!-- Deskripsi -->
+        <div style="flex: 1 1 300px; margin-bottom: 20px">
+          <h3 style="margin-bottom: 10px">Camp-Rent</h3>
+          <p style="line-height: 1.6">
+            Platform penyewaan alat camping terpercaya untuk mendukung
+            petualangan outdoor Anda. Sewa alat dengan mudah, cepat, dan
+            terjangkau.
+          </p>
+        </div>
+
+        <!-- Menu Navigasi -->
+        <div style="flex: 1 1 150px; margin-bottom: 20px">
+          <h4 style="margin-bottom: 10px">Menu</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <a href="index.html" style="color: white; text-decoration: none"
+                >Beranda</a
+              >
+            </li>
+            <li>
+              <a
+                href="alat_sewa.html"
+                style="color: white; text-decoration: none"
+                >Alat Camping</a
+              >
+            </li>
+            <li>
+              <a href="pesan.html" style="color: white; text-decoration: none"
+                >Pesan Online</a
+              >
+            </li>
+            <li>
+              <a href="kontak.html" style="color: white; text-decoration: none"
+                >Kontak</a
+              >
+            </li>
+            <li>
+              <a href="review.html" style="color: white; text-decoration: none"
+                >Komentar</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kontak -->
+        <div style="flex: 1 1 200px">
+          <h4 style="margin-bottom: 10px">Kontak</h4>
+          <ul style="list-style: none; padding: 0; line-height: 2">
+            <li>
+              <strong>📧 Email:</strong>
+              <a href="mailto:camprent@gmail.com" style="color: white"
+                >camprent@gmail.com</a
+              >
+            </li>
+            <li>
+              <strong>📸 Instagram:</strong>
+              <a
+                href="https://instagram.com/camp_rent2025"
+                target="_blank"
+                style="color: white"
+                >@camp_rent2025</a
+              >
+            </li>
+            <li>
+              <strong>📱 WhatsApp:</strong>
+              <a
+                href="https://wa.me/62895383051464"
+                target="_blank"
+                style="color: white"
+                >+62 895 3830 51464</a
+              >
+            </li>
+            <li>
+              <strong>📍 Alamat Toko:</strong> Jl. Manis No.17, Pondok Ranggon,
+              Jakarta Timur
+            </li>
+            <li>
+              <strong>🕒 Jam Operasional:</strong> Senin - Sabtu, 08.00 - 17.00
+              WIB
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin: 30px 0; border-color: #ccc" />
+      <div style="text-align: center; font-size: 14px">
+        © 2025 Camp-Rent. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
